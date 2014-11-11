@@ -1,0 +1,23 @@
+development:
+ adapter: postgresql
+ encoding: unicode
+ database: timetracking_development
+ pool: 5
+ username: Cecilia
+ password:
+
+test:
+ adapter: postgresql
+ encoding: unicode
+ database: timetracking_test
+ pool: 5
+ username: Cecilia
+ password:
+
+production:
+ adapter: postgresql
+ encoding: unicode
+ database: timetracking_production
+ pool: 5
+ username: Cecilia
+ password:
