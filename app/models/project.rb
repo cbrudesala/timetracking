@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
 	# end
 	has_many :entries
 
+	validates :name, presence: true, uniqueness: true, length: {maximum: 30}, format: {with: /\A[\w\s*]+\Z/}
+
 	def self.last_created_projects(number)
 		order(created_at: :desc).limit(number)
 	end
