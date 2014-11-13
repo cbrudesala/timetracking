@@ -20,6 +20,7 @@ class EntriesController < ApplicationController
 
 		if @entry.save
 			flash[:notice] = "Entry created successfully"
+			UserMailer.entry_created(@project).deliver
 			redirect_to action: :index, controller: :entries, project_id: @project.id
 		else
 			flash[:alert] = "Something went wrong :("
