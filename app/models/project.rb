@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
 	# def self.iron_find(id)
 	# 	where(id: id).first
 	# end
+	belongs_to :user
 	has_many :entries
 
 	validates :name, presence: true, uniqueness: true, length: {maximum: 30}, format: {with: /\A[\w\s*]+\Z/}
