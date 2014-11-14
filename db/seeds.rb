@@ -25,12 +25,14 @@
 # Entry.create hours:3, minutes: 23, project_id: project.id
 
 u = User.create(email: 'test@example.com', password: '123456789')
+group = Group.create(name: 'Development')
+Membership.create(group: group, user: u)
 
 12.times do |index|
-  project = Project.create (
+  project = Project.create(
   name: "Project #{index + 1}",
   description: "Description for project #{index + 1}",
-  user_id: u.id
+  group: group
   )
 
   Entry.create hours: index + 1, minutes: index + 1, date: Date.today, project_id: project.id
