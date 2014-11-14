@@ -1,25 +1,29 @@
-<% if @entry.errors.any? %>
-	<ul>
-		<% @entry.errors.full_messages.each do |error_msg| %>
-		<li><%= error_msg %></li>
+<div class= "row">
+	<div class= "col-md-3 col-md-offset-5">
+		<% if @entry.errors.any? %>
+			<ul>
+				<% @entry.errors.full_messages.each do |error_msg| %>
+				<li><%= error_msg %></li>
+				<% end %>
+			</ul>
 		<% end %>
-	</ul>
-<% end %>
 
 
-<%= form_for [@project, @entry] do |f| %>
-	<%= f.label :hours %>
-	<%= f.text_field :hours %>
-	<br />
-	<%= f.label :minutes %>
-	<%= f.text_field :minutes %>
-	<br />
-	<%= f.label :date %>
-	<%= f.date_field :date %>
-	<br />
+		<%= form_for [@project, @entry] do |f| %>
+			<%= f.label :hours %>
+			<%= f.text_field :hours, class: "form-control" %>
+			<br />
+			<%= f.label :minutes %>
+			<%= f.text_field :minutes, class: "form-control" %>
+			<br />
+			<%= f.label :date %>
+			<%= f.date_field :date, class: "form-control" %>
+			<br />
 
-	<%= f.submit 'Save' %>
+			<%= f.submit 'Save' %>
 
-<% end %>
+		<% end %>
 
-<%= link_to('Cancel', project_entries_path(@project)) %>
+		<%= link_to('Cancel', project_entries_path(@project)) %>
+	</div>
+</div>
